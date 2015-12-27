@@ -7,7 +7,6 @@ module.exports = router;
 
 function findOrCreate(model, properties) {
     return model.findOne({gooleId: properties.googleId}).exec().then(function(instance) {
-        console.log("ABCD",instance)
         if (instance) return instance; // --> promise for found instance
         return model.create(properties); // --> promise for created instance
     });
@@ -16,6 +15,10 @@ function findOrCreate(model, properties) {
 router.get("/", function(req, res, next) {
     res.render("index")
 });
+
+router.get("/addReview", function(req,res,next){
+    res.render("addReview")
+})
 
 router.post("/add", function(req, res, next) {
     var placesStr = req.body.places;

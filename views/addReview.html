@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="map-container col-sm-8 col-lg-9">
+	<div>
+	  	<div id="map-canvas"></div>
+	</div>
+</div>
+<div id="control-panel" class="col-sm-4 col-lg-3 clearfix">
+    <div class="col-xs-6 col-sm-12">
+      	<div class="panel panel-default">
+        	<div class="panel-body">
+        		<form id="map-rating">
+        			Name of Location: 
+        			<br>
+        			<input id="nameOfLoc" type="nameOfLoc">
+        			<br>
+        			<input type="submit" value="Submit">
+        		</form>
+        	</div>
+    	</div>
+	</div>
+</div>
+
+{% endblock %}
