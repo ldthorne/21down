@@ -7,16 +7,22 @@ var path = require('path');
 module.exports = router;
 
 function findOrCreate(model, properties) {
-    return model.findOne({gooleId: properties.googleId}).exec().then(function(instance) {
-        if (instance) return instance; // --> promise for found instance
-        return model.create(properties); // --> promise for created instance
+    return model.findOne({googleId: properties.googleId}).exec().then(function(instance) {
+        if (instance){
+            return instance; // --> promise for found instance  
+        } 
+        else{
+            return model.create(properties); // --> promise for created instance
+        }
     });
 }
 
 router.get("/", function(req, res, next) {
     res.render("index")
 });
-
+router.get("/getIp", function(req,res,next){
+    res.send(req.ip)
+})
 router.get("/addReview", function(req,res,next){
     res.render("addReview")
 })
