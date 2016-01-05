@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-var Place = models.Place
+var Place = models.Place;
+var User = models.User;
 var path = require('path');
 module.exports = router;
 
@@ -26,7 +27,7 @@ router.post("/add", function(req, res, next) {
     var allPlaces = [];
     places.forEach(function(place) {
         if (!place.rating) {
-            place.rating = [1]
+            place.rating = []
         }
         var placeProps = {
             name: place.name,
